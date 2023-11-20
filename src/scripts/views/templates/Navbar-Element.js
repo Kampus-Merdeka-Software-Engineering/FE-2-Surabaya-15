@@ -36,7 +36,7 @@ class NavbarElement extends HTMLElement {
                   <a class="nav-link" href="/" id="link-home">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/">Booking</a>
+                  <a class="nav-link" href="#/booking">Booking</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/">About Us</a>
