@@ -441,3 +441,81 @@ input[type="date"]::-webkit-datetime-edit-year-field {
   color: red;
 }
 /* end detail booking */
+/* About Us */
+.aboutus_container .title{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 20px;
+}
+.aboutus_container .title h1{
+  font-weight: 700;
+  color: #2b342b;
+}
+.line{
+  width: 80%;
+  border: 2px solid #2b342b;
+  opacity: 100%;
+}
+.line1{
+  width: 35%;
+  border: 2px solid #2b342b;
+  opacity: 100%;
+}
+
+.aboutus_container{
+  width: 100%;
+}
+.row .crd1{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 20px;  
+}
+.row .crd1 h1{
+  font-weight: 700;
+  color: #2b342b;
+}
+.imgcrd{
+  width: 220px;
+  object-fit: cover;
+  height: 249px;
+
+}
+.card2{
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+}
+.img1{
+  background-color: #9AAA9A;
+  padding-top: 30px !important;
+  padding: 0 30px;
+  width: fit-content;
+  border-radius: 20px;
+
+}
+.card2 h3{
+  margin: 0;
+  margin-top: 10px;
+ 
+  font-weight: 900;
+}
+.card2 p{
+  color: #2b342b;
+  font-weight: 600;
+}
+.card2 a{
+  text-decoration: none;
+  color: #2b342b;
+}
+.card2 a:hover{
+  color:#475846
+}
+/* End About Us */
