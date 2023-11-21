@@ -107,7 +107,7 @@ const DetailBookingPage = {
     async afterRender () {
       var swiper = new Swiper ('.image-swiper', {
         autoplay: {
-          delay: 2500,
+          delay: 5000,
           disableOnInteraction: false,
         },
         pagination: {

@@ -13,7 +13,7 @@ const AboutUs = {
                     accommodation. We believe that your journeyshould start with peace of mind and the assurance that your room is available without any hassle.
                 </p>
             </section>
-            <section>
+            <section class="mt-5">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="crd1">
@@ -28,14 +28,14 @@ const AboutUs = {
                             <h1> Mission</h1>
                             <hr class="line">
                         </div>
-                        <p>Guarantee that each of your trips starts with inner peace and guaranteed room availability without problems.
-                            <br> Leading innovation in the hospitality industry with a commitment to revolutionizing the way
+                        <p>1. Guarantee that each of your trips starts with inner peace and guaranteed room availability without problems.
+                            <br>2. Leading innovation in the hospitality industry with a commitment to revolutionizing the way
                             you book accommodation.
                         </p>
                     </div>
                 </div>
             </section>
-            <section class=" aboutus_container">
+            <section class=" aboutus_container my-5">
                 <div class="title">
                     <h1> Group 15 Team H Section Surabaya</h1>
                     <hr class="line1">
