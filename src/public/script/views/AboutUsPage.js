@@ -142,7 +142,7 @@ export default class extends TemplatePage {
               <h3>
                 <a
                   href="https://www.linkedin.com/in/muhamad-ari-shandi-ba0434296?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                  >Muhammad Ari Sandi</a
+                  >Muhammad Ari Shandi</a
                 >
               </h3>
               <p>Backend Developer</p>
