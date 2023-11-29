@@ -1,4 +1,7 @@
-node_modules
+.idea
 .vscode
-package.json
+.env
+.test.env
+node_modules
 package-lock.json
+package.json
