@@ -66,7 +66,7 @@ formDetailBooking.addEventListener("submit", async (e) => {
   // insert data boking
   const name = document.getElementById("inputName").value;
   const email = document.getElementById("inputEmail").value;
-
+  const paymentMethod = document.getElementById("selectPayment").value;
   const data = {
     checkin: dataCheckin,
     checkout: dataCheckout,
@@ -87,4 +87,49 @@ formDetailBooking.addEventListener("submit", async (e) => {
   const postDataJson = await postData.json();
   console.log(postDataJson);
   // end insert data boking
+
+  // struk
+  const getDetailBooking = await fetch(`${API}/gethotel/${id.id}`);
+  const getDetailBookingJson = await getDetailBooking.json();
+  const strukContainer = document.querySelector(".struk_container");
+  strukContainer.innerHTML = `
+    <div class="struk_wrapper">
+      <div class="struk_title" style="text-transform: capitalize">
+        <h1>${getDetailBookingJson[0].nama} Hotel Booking Receipt</h1>
+        <h5>${name}, ${new Date().toLocaleDateString("en-US")}</h5>
+      </div>
+      <div class="struk_items" style="text-transform: capitalize">
+        <div class="left-content">
+          <p><strong>Check In:</strong> ${dataCheckin}</p>
+          <p><strong>Check Out:</strong> ${dataCheckout}</p>
+          <p><strong>Type Bed:</strong> ${typeBed}</p>
+          <p><strong>Number of Rooms:</strong> ${numberOfRoom}</p>
+        </div>
+        <div class="right-content">
+          <p><strong>Price:</strong> Rp.${moneyFormatter.format(harga)}</p>
+          <p><strong>Total Payment:</strong> Rp.${moneyFormatter.format(
+            totalPayment
+          )}</p>
+          <p><strong>Payment Methode:</strong> ${paymentMethod}</p>
+        </div>
+      </div>
+      <p>
+        Further information will be sent via email, please check at
+        <strong>${email}</strong>
+      </p>
+    </div>
+  `;
+
+  const overlay = document.querySelector(".overlay");
+  strukContainer.classList.add("active");
+  overlay.classList.add("active");
+  // end struk
+});
+const overlay = document.querySelector(".overlay");
+const strukContainer = document.querySelector(".struk_container");
+overlay.addEventListener("click", () => {
+  console.log("masokk");
+  strukContainer.classList.remove("active");
+  overlay.classList.remove("active");
+  window.location.replace("/booking");
 });

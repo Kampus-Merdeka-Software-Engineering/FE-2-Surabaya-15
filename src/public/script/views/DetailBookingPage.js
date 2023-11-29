@@ -221,6 +221,12 @@ export default class extends TemplatePage {
             </div>
           </div>
         </div>
+        <div class="struk_container">        
+        
+        </div>
+        <div class="overlay">
+        
+        </div>
       </section>
     `;
   }
