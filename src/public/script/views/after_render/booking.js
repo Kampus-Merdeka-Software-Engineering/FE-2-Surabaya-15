@@ -1,4 +1,6 @@
-window.addEventListener("load", async () => {
+import CONFIG from "../../globals/config.js";
+
+export const render = async () => {
   const mySwiperJakarta = document.querySelector(".mySwiper-jakarta");
   var swiper = new Swiper(mySwiperJakarta, {
     slidesPerView: 3,
@@ -157,16 +159,14 @@ window.addEventListener("load", async () => {
   });
 
   // get data to booking page
-
   try {
-    const API = "http://localhost:3001";
-    const response = await fetch(`${API}/gethotels`);
+    const response = await fetch(`${CONFIG.API}/gethotels`);
     const hotels = await response.json();
 
     const loader = document.querySelector(".loader-container");
     loader.style.display = "flex";
 
-    const typeHotel = await fetch(`${API}/getalltypehotel`);
+    const typeHotel = await fetch(`${CONFIG.API}/getalltypehotel`);
     const dataTypeHotel = await typeHotel.json();
     let harga;
 
@@ -204,7 +204,7 @@ window.addEventListener("load", async () => {
                         <i class="bx bx-star"></i> ${hotel.rating}
                       </p>
                     </div>
-                    <h2 class="harga_booking">IDR ${moneyFormatter.format(
+                    <h2 class="harga_booking">Rp${CONFIG.moneyFormatter.format(
                       harga
                     )}</h2>
                     <p class="facility">Facility</p>
@@ -243,11 +243,11 @@ window.addEventListener("load", async () => {
                         <i class="bx bx-star"></i> ${hotel.rating}
                       </p>
                     </div>
-                    <h2>Rp. ${moneyFormatter.format(harga)}</h2>
+                    <h2>Rp${CONFIG.moneyFormatter.format(harga)}</h2>
                     <p class="facility">Facility</p>
                     <p class="facility_item">${hotel.fasilitas}</p>
                     <div class="location_content">
-                      <p><i class="bx bx-map"></i> ${moneyFormatter.format(
+                      <p><i class="bx bx-map"></i> ${CONFIG.moneyFormatter.format(
                         hotel.kota
                       )}</p>
                       <a href="/detail/${hotel.id}" data-link
@@ -282,7 +282,7 @@ window.addEventListener("load", async () => {
                         <i class="bx bx-star"></i> ${hotel.rating}
                       </p>
                     </div>
-                    <h2>Rp. ${moneyFormatter.format(harga)}</h2>
+                    <h2>Rp${CONFIG.moneyFormatter.format(harga)}</h2>
                     <p class="facility">Facility</p>
                     <p class="facility_item">${hotel.fasilitas}</p>
                     <div class="location_content">
@@ -319,7 +319,7 @@ window.addEventListener("load", async () => {
                         <i class="bx bx-star"></i> ${hotel.rating}
                       </p>
                     </div>
-                    <h2>Rp. ${moneyFormatter.format(harga)}</h2>
+                    <h2>Rp${CONFIG.moneyFormatter.format(harga)}</h2>
                     <p class="facility">Facility</p>
                     <p class="facility_item">${hotel.fasilitas}</p>
                     <div class="location_content">
@@ -340,4 +340,4 @@ window.addEventListener("load", async () => {
     console.log(error);
   }
   // end get data to booking page
-});
+};

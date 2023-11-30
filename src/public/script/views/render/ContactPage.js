@@ -1,9 +1,10 @@
-import TemplatePage from "./TemplatePage.js";
+import TemplatePage from "../TemplatePage.js";
 
 export default class extends TemplatePage {
   constructor(params) {
     super(params);
     this.setTitle("Contact Page");
+    this.setNavbar(document.getElementById("navbar_contact"));
   }
 
   async getHtml() {

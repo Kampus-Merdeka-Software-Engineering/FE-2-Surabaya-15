@@ -1,9 +1,11 @@
-import TemplatePage from "./TemplatePage.js";
+import TemplatePage from "../TemplatePage.js";
+import { render } from "../after_render/booking.js";
 
 export default class extends TemplatePage {
   constructor(params) {
     super(params);
     this.setTitle("Booking Page");
+    this.setNavbar(document.getElementById("navbar_booking"));
   }
 
   async getHtml() {
@@ -70,5 +72,9 @@ export default class extends TemplatePage {
         </section>
       </section>
     `;
+  }
+
+  async afterRender() {
+    return render();
   }
 }

@@ -1,9 +1,10 @@
-import TemplatePage from "./TemplatePage.js";
+import TemplatePage from "../TemplatePage.js";
 
 export default class extends TemplatePage {
   constructor(params) {
     super(params);
     this.setTitle("About Us Page");
+    this.setNavbar(document.getElementById("navbar_aboutus"));
   }
 
   async getHtml() {
@@ -74,7 +75,7 @@ export default class extends TemplatePage {
             </p>
           </div>
         </section>
-        <section class="aboutus_container">
+        <section class="aboutus_container" style="margin-bottom: 150px">
           <div
             class="aboutus_title"
             style="margin-bottom: 50px;"
@@ -142,7 +143,7 @@ export default class extends TemplatePage {
               <h3>
                 <a
                   href="https://www.linkedin.com/in/muhamad-ari-shandi-ba0434296?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                  >Muhammad Ari Shandi</a
+                  >Muhammad Ari Sandi</a
                 >
               </h3>
               <p>Backend Developer</p>

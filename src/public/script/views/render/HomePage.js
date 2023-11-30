@@ -1,9 +1,11 @@
-import TemplatePage from "./TemplatePage.js";
+import TemplatePage from "../TemplatePage.js";
+import { render } from "../after_render/home.js";
 
 export default class extends TemplatePage {
   constructor(params) {
     super(params);
     this.setTitle("Home Page");
+    this.setNavbar(document.getElementById("navbar_home"));
   }
   async getHtml() {
     return `
@@ -22,7 +24,6 @@ export default class extends TemplatePage {
                       aria-label="Default select example"
                       name="kota"
                     >
-                      <option hidden>Select City</option>
                       <option value="Jakarta">Jakarta</option>
                       <option value="Bandung">Bandung</option>
                       <option value="Medan">Medan</option>
@@ -109,8 +110,7 @@ export default class extends TemplatePage {
               </h3>
             </div>
             <div class="swiper mySwiper-testi">
-              <div class="swiper-wrapper" id="container_testi_wrapper">
-              </div>
+              <div class="swiper-wrapper" id="container_testi_wrapper"></div>
               <div class="swiper-button-next"></div>
               <div class="swiper-button-prev"></div>
               <div class="swiper-pagination"></div>
@@ -132,6 +132,7 @@ export default class extends TemplatePage {
                       id="inputName"
                       placeholder="Enter your name"
                       name="nama"
+                      required
                     />
                   </div>
                   <div class="items_input_testi">
@@ -142,6 +143,7 @@ export default class extends TemplatePage {
                       id="inputEmail"
                       placeholder="Enter your email"
                       name="email"
+                      required
                     />
                   </div>
                   <div class="items_input_testi">
@@ -154,6 +156,7 @@ export default class extends TemplatePage {
                       rows="3"
                       placeholder="Describe your experience"
                       name="pesan"
+                      required
                     ></textarea>
                   </div>
                   <div class="btn-send-content">
@@ -166,5 +169,8 @@ export default class extends TemplatePage {
         </section>
       </section>
     `;
+  }
+  async afterRender() {
+    return render();
   }
 }

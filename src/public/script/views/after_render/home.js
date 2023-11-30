@@ -1,4 +1,6 @@
-window.addEventListener("load", async () => {
+import CONFIG from "../../globals/config.js";
+
+export const render = async () => {
   const mySwiper = document.querySelector(".mySwiper");
   var swiper = new Swiper(mySwiper, {
     slidesPerView: 3,
@@ -38,6 +40,7 @@ window.addEventListener("load", async () => {
       }
     }
   });
+
   const mySwiper1 = document.querySelector(".mySwiper-testi");
   var swiper1 = new Swiper(mySwiper1, {
     slidesPerView: 1,
@@ -82,11 +85,9 @@ window.addEventListener("load", async () => {
   let typeHotel;
   let dataTypeHotel;
   const bestOfferContainer = document.getElementById("best_offer_container");
-
   try {
-    const response = await fetch(`${API}/gethotels`);
+    const response = await fetch(`${CONFIG.API}/gethotels`);
     const hotels = await response.json();
-
     let tempNum = 0;
     let hotelId = 0;
     const dataJakarta = hotels.filter((hotel) => {
@@ -95,8 +96,7 @@ window.addEventListener("load", async () => {
         return (tempNum = parseFloat(hotel.rating));
       }
     });
-
-    typeHotel = await fetch(`${API}/getalltype/${hotelId}`);
+    typeHotel = await fetch(`${CONFIG.API}/getalltype/${hotelId}`);
     dataTypeHotel = await typeHotel.json();
     bestOfferContainer.innerHTML += `
         <div class="swiper-slide">
@@ -114,7 +114,7 @@ window.addEventListener("load", async () => {
                   <i class="bx bx-star"></i> ${dataJakarta[0].rating}
                 </p>
               </div>
-              <h2>IDR ${moneyFormatter.format(dataTypeHotel[0].harga)}</h2>
+              <h2>Rp${CONFIG.moneyFormatter.format(dataTypeHotel[0].harga)}</h2>
               <p class="facility">Facility</p>
               <p class="facility_item">${dataJakarta[0].fasilitas}</p>
               <div class="location_content">
@@ -128,7 +128,6 @@ window.addEventListener("load", async () => {
           </div>
         </div>
       `;
-
     tempNum = 0;
     hotelId = 0;
     const dataBandung = hotels.filter((hotel) => {
@@ -137,7 +136,7 @@ window.addEventListener("load", async () => {
         return (tempNum = parseFloat(hotel.rating));
       }
     });
-    typeHotel = await fetch(`${API}/getalltype/${hotelId}`);
+    typeHotel = await fetch(`${CONFIG.API}/getalltype/${hotelId}`);
     dataTypeHotel = await typeHotel.json();
     bestOfferContainer.innerHTML += `
         <div class="swiper-slide">
@@ -155,7 +154,7 @@ window.addEventListener("load", async () => {
                   <i class="bx bx-star"></i> ${dataBandung[0].rating}
                 </p>
               </div>
-              <h2>IDR ${moneyFormatter.format(dataTypeHotel[0].harga)}</h2>
+              <h2>Rp${CONFIG.moneyFormatter.format(dataTypeHotel[0].harga)}</h2>
               <p class="facility">Facility</p>
               <p class="facility_item">${dataBandung[0].fasilitas}</p>
               <div class="location_content">
@@ -169,7 +168,6 @@ window.addEventListener("load", async () => {
           </div>
         </div>
       `;
-
     tempNum = 0;
     hotelId = 0;
     const dataMedan = hotels.filter((hotel) => {
@@ -178,7 +176,7 @@ window.addEventListener("load", async () => {
         return (tempNum = parseFloat(hotel.rating));
       }
     });
-    typeHotel = await fetch(`${API}/getalltype/${hotelId}`);
+    typeHotel = await fetch(`${CONFIG.API}/getalltype/${hotelId}`);
     dataTypeHotel = await typeHotel.json();
     bestOfferContainer.innerHTML += `
         <div class="swiper-slide">
@@ -196,7 +194,7 @@ window.addEventListener("load", async () => {
                   <i class="bx bx-star"></i> ${dataMedan[0].rating}
                 </p>
               </div>
-              <h2>IDR ${moneyFormatter.format(dataTypeHotel[0].harga)}</h2>
+              <h2>Rp${CONFIG.moneyFormatter.format(dataTypeHotel[0].harga)}</h2>
               <p class="facility">Facility</p>
               <p class="facility_item">${dataMedan[0].fasilitas}</p>
               <div class="location_content">
@@ -210,7 +208,6 @@ window.addEventListener("load", async () => {
           </div>
         </div>
       `;
-
     tempNum = 0;
     hotelId = 0;
     const dataBali = hotels.filter((hotel) => {
@@ -219,7 +216,7 @@ window.addEventListener("load", async () => {
         return (tempNum = parseFloat(hotel.rating));
       }
     });
-    typeHotel = await fetch(`${API}/getalltype/${hotelId}`);
+    typeHotel = await fetch(`${CONFIG.API}/getalltype/${hotelId}`);
     dataTypeHotel = await typeHotel.json();
     bestOfferContainer.innerHTML += `
         <div class="swiper-slide">
@@ -237,7 +234,7 @@ window.addEventListener("load", async () => {
                   <i class="bx bx-star"></i> ${dataBali[0].rating}
                 </p>
               </div>
-              <h2>IDR ${moneyFormatter.format(dataTypeHotel[0].harga)}</h2>
+              <h2>Rp${CONFIG.moneyFormatter.format(dataTypeHotel[0].harga)}</h2>
               <p class="facility">Facility</p>
               <p class="facility_item">${dataBali[0].fasilitas}</p>
               <div class="location_content">
@@ -255,13 +252,11 @@ window.addEventListener("load", async () => {
     console.log(error);
   }
   // end get data to home page
-
   // testimoni
   // get data testi
-  const getTesti = await fetch(`${API}/gettestimonis`);
+  const getTesti = await fetch(`${CONFIG.API}/gettestimonis`);
   const getTestiJson = await getTesti.json();
   const testiContainer = document.getElementById("container_testi_wrapper");
-
   getTestiJson.forEach((testi) => {
     testiContainer.innerHTML += `
       <div class="swiper-slide">
@@ -288,15 +283,13 @@ window.addEventListener("load", async () => {
     `;
   });
   // end get data testi
-
   // post data test
   const form = document.querySelector(".form_testi");
   form.addEventListener("submit", async (e) => {
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
-
     try {
-      const postTesti = await fetch(`${API}/createtestimoni`, {
+      const postTesti = await fetch(`${CONFIG.API}/createtestimoni`, {
         method: "POST", // or 'PUT'
         headers: {
           "Content-Type": "application/json"
@@ -314,7 +307,6 @@ window.addEventListener("load", async () => {
   });
   // end post data test
   // end testimoni
-
   // search
   const formSearch = document.getElementById("form-search");
   formSearch.addEventListener("submit", async (e) => {
@@ -323,7 +315,6 @@ window.addEventListener("load", async () => {
     const data = Object.fromEntries(formData);
     const datacity = JSON.stringify(data);
     const city = JSON.parse(datacity);
-
     const containerTittle = document.querySelector(".items_title");
     containerTittle.innerHTML = `
       <h1
@@ -342,12 +333,12 @@ window.addEventListener("load", async () => {
         KOTA ${city.kota}
       </h3>
     `;
-    const response = await fetch(`${API}/gethotels`);
+    const response = await fetch(`${CONFIG.API}/gethotels`);
     const hotels = await response.json();
     let containerResultSearch = document.querySelector("#best_offer_container");
     containerResultSearch.innerHTML = "";
     hotels.forEach(async (hotel) => {
-      typeHotel = await fetch(`${API}/getalltype/${hotel.id}`);
+      typeHotel = await fetch(`${CONFIG.API}/getalltype/${hotel.id}`);
       dataTypeHotel = await typeHotel.json();
       if (hotel.kota === city.kota) {
         containerResultSearch.innerHTML += `
@@ -366,7 +357,9 @@ window.addEventListener("load", async () => {
                     <i class="bx bx-star"></i> ${hotel.rating}
                   </p>
                 </div>
-                <h2>IDR ${moneyFormatter.format(dataTypeHotel[0].harga)}</h2>
+                <h2>Rp${CONFIG.moneyFormatter.format(
+                  dataTypeHotel[0].harga
+                )}</h2>
                 <p class="facility">Facility</p>
                 <p class="facility_item">${hotel.fasilitas}</p>
                 <div class="location_content">
@@ -384,17 +377,15 @@ window.addEventListener("load", async () => {
     });
   });
   // end search
-
   var dtToday = new Date();
   var month = dtToday.getMonth() + 1; // getMonth() is zero-based
   var day = dtToday.getDate();
   var year = dtToday.getFullYear();
   if (month < 10) month = "0" + month.toString();
   if (day < 10) day = "0" + day.toString();
-
   var maxDate = year + "-" + month + "-" + day;
   const dateCheckInMax = document.getElementById("dateCheckIn");
   const dateCheckOutMax = document.getElementById("dateCheckOut");
   dateCheckInMax.setAttribute("min", maxDate);
   dateCheckOutMax.setAttribute("min", maxDate);
-});
+};
