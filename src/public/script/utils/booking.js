@@ -243,7 +243,7 @@ window.addEventListener("load", async () => {
                         <i class="bx bx-star"></i> ${hotel.rating}
                       </p>
                     </div>
-                    <h2>IDR ${moneyFormatter.format(harga)}</h2>
+                    <h2>Rp. ${moneyFormatter.format(harga)}</h2>
                     <p class="facility">Facility</p>
                     <p class="facility_item">${hotel.fasilitas}</p>
                     <div class="location_content">
@@ -282,7 +282,7 @@ window.addEventListener("load", async () => {
                         <i class="bx bx-star"></i> ${hotel.rating}
                       </p>
                     </div>
-                    <h2>IDR ${moneyFormatter.format(harga)}</h2>
+                    <h2>Rp. ${moneyFormatter.format(harga)}</h2>
                     <p class="facility">Facility</p>
                     <p class="facility_item">${hotel.fasilitas}</p>
                     <div class="location_content">
@@ -319,7 +319,7 @@ window.addEventListener("load", async () => {
                         <i class="bx bx-star"></i> ${hotel.rating}
                       </p>
                     </div>
-                    <h2>IDR ${moneyFormatter.format(harga)}</h2>
+                    <h2>Rp. ${moneyFormatter.format(harga)}</h2>
                     <p class="facility">Facility</p>
                     <p class="facility_item">${hotel.fasilitas}</p>
                     <div class="location_content">
