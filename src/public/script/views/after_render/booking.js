@@ -227,6 +227,8 @@ export const render = async () => {
               harga = item.harga;
             }
           });
+
+          console.log (hotel)
           bandungContainer.innerHTML += `
               <div class="swiper-slide">
                 <div
@@ -247,9 +249,7 @@ export const render = async () => {
                     <p class="facility">Facility</p>
                     <p class="facility_item">${hotel.fasilitas}</p>
                     <div class="location_content">
-                      <p><i class="bx bx-map"></i> ${CONFIG.moneyFormatter.format(
-                        hotel.kota
-                      )}</p>
+                      <p><i class="bx bx-map"></i>${hotel.kota}</p>
                       <a href="/detail/${hotel.id}" data-link
                         >BOOKING <br />
                         NOW</a
@@ -323,7 +323,7 @@ export const render = async () => {
                     <p class="facility">Facility</p>
                     <p class="facility_item">${hotel.fasilitas}</p>
                     <div class="location_content">
-                      <p><i class="bx bx-map"></i> ${hotel.kota}</p>
+                      <p><i class="bx bx-map"></i>${hotel.kota}</p>
                       <a href="/detail/${hotel.id}" data-link
                         >BOOKING <br />
                         NOW</a
