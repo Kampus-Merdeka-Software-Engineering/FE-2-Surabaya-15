@@ -1,4 +1,4 @@
-import CONFIG from "../../globals/config.js";
+const CONFIG = require ("../../globals/config.js");
 
 export const render = async (id) => {
   const getDetailBooking = await fetch(`${CONFIG.API}/gethotel/${id}`);

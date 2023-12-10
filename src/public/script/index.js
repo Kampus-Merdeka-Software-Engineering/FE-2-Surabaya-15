@@ -1,5 +1,4 @@
 const App = require("./views/app.js")
-
 const app = new App({
   content: document.querySelector("#main-content")
 });

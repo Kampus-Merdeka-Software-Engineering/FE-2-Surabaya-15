@@ -1,4 +1,4 @@
-import CONFIG from "../../globals/config.js";
+const CONFIG =require ("../../globals/config.js");
 
 export const render = async () => {
   const mySwiperJakarta = document.querySelector(".mySwiper-jakarta");
