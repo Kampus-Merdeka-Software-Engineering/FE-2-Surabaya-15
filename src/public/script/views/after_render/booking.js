@@ -1,6 +1,6 @@
-const CONFIG =require ("../../globals/config.js");
+import CONFIG from "../../globals/config.js";
 
-const render = async () => {
+export const render = async () => {
   const mySwiperJakarta = document.querySelector(".mySwiper-jakarta");
   var swiper = new Swiper(mySwiperJakarta, {
     slidesPerView: 3,
@@ -19,14 +19,17 @@ const render = async () => {
       prevEl: ".swiper-button-prev"
     },
     breakpoints: {
+      // when window width is >= 320px
       320: {
         slidesPerView: 1,
         spaceBetween: 10
       },
+      // when window width is >= 480px
       480: {
         slidesPerView: 2,
         spaceBetween: 250
       },
+      // when window width is >= 640px
       768: {
         slidesPerView: 2,
         spaceBetween: 100
@@ -55,14 +58,17 @@ const render = async () => {
       prevEl: ".swiper-button-prev"
     },
     breakpoints: {
+      // when window width is >= 320px
       320: {
         slidesPerView: 1,
         spaceBetween: 10
       },
+      // when window width is >= 480px
       480: {
         slidesPerView: 2,
         spaceBetween: 250
       },
+      // when window width is >= 640px
       768: {
         slidesPerView: 2,
         spaceBetween: 100
@@ -91,14 +97,17 @@ const render = async () => {
       prevEl: ".swiper-button-prev"
     },
     breakpoints: {
+      // when window width is >= 320px
       320: {
         slidesPerView: 1,
         spaceBetween: 10
       },
+      // when window width is >= 480px
       480: {
         slidesPerView: 2,
         spaceBetween: 250
       },
+      // when window width is >= 640px
       768: {
         slidesPerView: 2,
         spaceBetween: 100
@@ -127,14 +136,17 @@ const render = async () => {
       prevEl: ".swiper-button-prev"
     },
     breakpoints: {
+      // when window width is >= 320px
       320: {
         slidesPerView: 1,
         spaceBetween: 10
       },
+      // when window width is >= 480px
       480: {
         slidesPerView: 2,
         spaceBetween: 250
       },
+      // when window width is >= 640px
       768: {
         slidesPerView: 2,
         spaceBetween: 100
@@ -146,6 +158,7 @@ const render = async () => {
     }
   });
 
+  // get data to booking page
   try {
     const response = await fetch(`${CONFIG.API}/gethotels`);
     const hotels = await response.json();
@@ -214,8 +227,6 @@ const render = async () => {
               harga = item.harga;
             }
           });
-
-          console.log (hotel)
           bandungContainer.innerHTML += `
               <div class="swiper-slide">
                 <div
@@ -236,7 +247,9 @@ const render = async () => {
                     <p class="facility">Facility</p>
                     <p class="facility_item">${hotel.fasilitas}</p>
                     <div class="location_content">
-                      <p><i class="bx bx-map"></i>${hotel.kota}</p>
+                      <p><i class="bx bx-map"></i> ${CONFIG.moneyFormatter.format(
+                        hotel.kota
+                      )}</p>
                       <a href="/detail/${hotel.id}" data-link
                         >BOOKING <br />
                         NOW</a
@@ -310,7 +323,7 @@ const render = async () => {
                     <p class="facility">Facility</p>
                     <p class="facility_item">${hotel.fasilitas}</p>
                     <div class="location_content">
-                      <p><i class="bx bx-map"></i>${hotel.kota}</p>
+                      <p><i class="bx bx-map"></i> ${hotel.kota}</p>
                       <a href="/detail/${hotel.id}" data-link
                         >BOOKING <br />
                         NOW</a
@@ -326,5 +339,5 @@ const render = async () => {
   } catch (error) {
     console.log(error);
   }
+  // end get data to booking page
 };
-module.exports = render

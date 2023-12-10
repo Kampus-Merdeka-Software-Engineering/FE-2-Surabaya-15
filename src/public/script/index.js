@@ -1,4 +1,5 @@
-const App = require("./views/app.js")
+import App from "./views/app.js";
+
 const app = new App({
   content: document.querySelector("#main-content")
 });

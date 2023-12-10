@@ -1,6 +1,6 @@
-const CONFIG = require ( "../../globals/config.js");
+import CONFIG from "../../globals/config.js";
 
-const render = async () => {
+export const render = async () => {
   const mySwiper = document.querySelector(".mySwiper");
   var swiper = new Swiper(mySwiper, {
     slidesPerView: 3,
@@ -19,14 +19,17 @@ const render = async () => {
       prevEl: ".swiper-button-prev"
     },
     breakpoints: {
+      // when window width is >= 320px
       320: {
         slidesPerView: 1,
         spaceBetween: 10
       },
+      // when window width is >= 480px
       480: {
         slidesPerView: 2,
         spaceBetween: 250
       },
+      // when window width is >= 640px
       768: {
         slidesPerView: 2,
         spaceBetween: 100
@@ -56,14 +59,17 @@ const render = async () => {
       prevEl: ".swiper-button-prev"
     },
     breakpoints: {
+      // when window width is >= 320px
       320: {
         slidesPerView: 1,
         spaceBetween: 20
       },
+      // when window width is >= 480px
       480: {
         slidesPerView: 1,
         spaceBetween: 30
       },
+      // when window width is >= 640px
       768: {
         slidesPerView: 2,
         spaceBetween: 20
@@ -75,6 +81,7 @@ const render = async () => {
     }
   });
 
+  // get data to home page
   let typeHotel;
   let dataTypeHotel;
   const bestOfferContainer = document.getElementById("best_offer_container");
@@ -244,7 +251,9 @@ const render = async () => {
   } catch (error) {
     console.log(error);
   }
-
+  // end get data to home page
+  // testimoni
+  // get data testi
   const getTesti = await fetch(`${CONFIG.API}/gettestimonis`);
   const getTestiJson = await getTesti.json();
   const testiContainer = document.getElementById("container_testi_wrapper");
@@ -273,14 +282,15 @@ const render = async () => {
       </div>
     `;
   });
-
+  // end get data testi
+  // post data test
   const form = document.querySelector(".form_testi");
   form.addEventListener("submit", async (e) => {
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
     try {
       const postTesti = await fetch(`${CONFIG.API}/createtestimoni`, {
-        method: "POST", 
+        method: "POST", // or 'PUT'
         headers: {
           "Content-Type": "application/json"
         },
@@ -295,7 +305,9 @@ const render = async () => {
       console.log(error);
     }
   });
-
+  // end post data test
+  // end testimoni
+  // search
   const formSearch = document.getElementById("form-search");
   formSearch.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -364,9 +376,9 @@ const render = async () => {
       }
     });
   });
- 
+  // end search
   var dtToday = new Date();
-  var month = dtToday.getMonth() + 1; 
+  var month = dtToday.getMonth() + 1; // getMonth() is zero-based
   var day = dtToday.getDate();
   var year = dtToday.getFullYear();
   if (month < 10) month = "0" + month.toString();
@@ -377,4 +389,3 @@ const render = async () => {
   dateCheckInMax.setAttribute("min", maxDate);
   dateCheckOutMax.setAttribute("min", maxDate);
 };
-module.exports = render

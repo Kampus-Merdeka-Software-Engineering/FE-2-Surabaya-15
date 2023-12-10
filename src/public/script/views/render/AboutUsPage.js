@@ -1,6 +1,6 @@
-const TemplatePage =require ( "../TemplatePage.js");
+import TemplatePage from "../TemplatePage.js";
 
-module.exports= class extends TemplatePage {
+export default class extends TemplatePage {
   constructor(params) {
     super(params);
     this.setTitle("About Us Page");
@@ -143,7 +143,7 @@ module.exports= class extends TemplatePage {
               <h3>
                 <a
                   href="https://www.linkedin.com/in/muhamad-ari-shandi-ba0434296?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                  >Muhammad Ari Shandi</a
+                  >Muhammad Ari Sandi</a
                 >
               </h3>
               <p>Backend Developer</p>

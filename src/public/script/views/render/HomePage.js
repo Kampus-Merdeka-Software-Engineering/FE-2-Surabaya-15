@@ -1,7 +1,7 @@
-const TemplatePage = require ("../TemplatePage.js");
-const { render } = require ("../after_render/home.js");
+import TemplatePage from "../TemplatePage.js";
+import { render } from "../after_render/home.js";
 
-module.exports = class extends TemplatePage {
+export default class extends TemplatePage {
   constructor(params) {
     super(params);
     this.setTitle("Home Page");

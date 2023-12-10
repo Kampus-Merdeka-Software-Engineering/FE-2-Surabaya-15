@@ -1,6 +1,7 @@
-const CONFIG = require ("../../globals/config.js");
+import CONFIG from "../../globals/config.js";
 
-const render = async (id) => {
+export const render = async (id) => {
+  // render data left detail booking
   const getDetailBooking = await fetch(`${CONFIG.API}/gethotel/${id}`);
   const getDetailBookingJson = await getDetailBooking.json();
 
@@ -58,6 +59,9 @@ const render = async (id) => {
     <p class="boldier">Facility</p>
     <p>${getDetailBookingJson[0].fasilitas}</p>
   `;
+  // end render data left detail booking
+
+  // swipper
   const swiperDetail = document.querySelector(".swiper-detail-booking");
   var swiper = new Swiper(swiperDetail, {
     autoplay: {
@@ -69,9 +73,11 @@ const render = async (id) => {
       dynamicBullets: true
     }
   });
+  // end swipper
 
+  // set input date
   var dtToday = new Date();
-  var month = dtToday.getMonth() + 1; 
+  var month = dtToday.getMonth() + 1; // getMonth() is zero-based
   var day = dtToday.getDate();
   var year = dtToday.getFullYear();
   if (month < 10) month = "0" + month.toString();
@@ -82,10 +88,13 @@ const render = async (id) => {
   const dateCheckOutMax = document.getElementById("inputCheckout");
   dateCheckInMax.setAttribute("min", maxDate);
   dateCheckOutMax.setAttribute("min", maxDate);
-  
+  // end set input date
+
+  // submit form
   const formDetailBooking = document.querySelector(".form-detail-booking");
   formDetailBooking.addEventListener("submit", async (e) => {
     e.preventDefault();
+    // get value data
     const dataCheckin = document.querySelector("#inputCheckin").value;
     const dateCheckIn = new Date(dataCheckin);
     const dataCheckout = document.querySelector("#inputCheckout").value;
@@ -94,7 +103,9 @@ const render = async (id) => {
     const typeBed = document.querySelector("#selectTypeBed").value;
     const totalDate = dateCheckOut.getTime() - dateCheckIn.getTime();
     const totalDays = Math.ceil(totalDate / (1000 * 3600 * 24));
+    // end get value data
 
+    //  get data harga
     const datasTypeBed = await fetch(`${CONFIG.API}/getalltype/${id}`);
     const datasTypeBedJson = await datasTypeBed.json();
     let harga;
@@ -103,7 +114,9 @@ const render = async (id) => {
         harga = data.harga;
       }
     });
+    // end get data harga
 
+    // get data total payment
     const totalPayment = totalDays * numberOfRoom * harga;
     let totalPaymentContainer = document.getElementById(
       "total_payment_container"
@@ -123,7 +136,9 @@ const render = async (id) => {
         />
       </div>
     `;
+    // end get data total payment
 
+    // insert data boking
     const name = document.getElementById("inputName").value;
     const email = document.getElementById("inputEmail").value;
     const paymentMethod = document.getElementById("selectPayment").value;
@@ -145,27 +160,11 @@ const render = async (id) => {
     };
     const postData = await fetch(`${CONFIG.API}/createbooking/${id}`, option);
     const postDataJson = await postData.json();
+    // end insert data boking
 
+    // struk
     const getDetailBooking = await fetch(`${CONFIG.API}/gethotel/${id}`);
     const getDetailBookingJson = await getDetailBooking.json();
-    const dataEmail = {
-      to_name : name,
-      hotel_name :getDetailBookingJson[0].nama,
-      check_in :dataCheckin,
-      check_out : dataCheckout ,
-      type_bed : typeBed,
-      total_payment: CONFIG.moneyFormatter.format(totalPayment),
-      method_payment: paymentMethod,
-      reply_to: email,
-    }
-    emailjs.send ('fiftyhotels_order', 'template_g8eqp44',dataEmail).then (
-      function (response) {
-        console.log(response)
-      },
-      function (err) {
-        console.log(err)
-      })
-
     const strukContainer = document.querySelector(".struk_container");
     strukContainer.innerHTML = `
       <div class="struk_wrapper">
@@ -200,8 +199,11 @@ const render = async (id) => {
     const overlay = document.querySelector(".overlay");
     strukContainer.classList.add("active");
     overlay.classList.add("active");
+    // end struk
   });
+  // end submit form
 
+  // set overlay when clicked
   const overlay = document.querySelector(".overlay");
   const strukContainer = document.querySelector(".struk_container");
   overlay.addEventListener("click", () => {
@@ -209,5 +211,5 @@ const render = async (id) => {
     overlay.classList.remove("active");
     window.location.replace("/booking");
   });
+  // end set overlay when clicked
 };
-module.exports = render

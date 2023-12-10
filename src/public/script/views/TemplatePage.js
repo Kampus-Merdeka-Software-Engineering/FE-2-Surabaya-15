@@ -1,7 +1,7 @@
-const { hamburger } = require ( "../utils/hamburger.js");
-const { navigateTo }= require("../utils/navigate.js");
+import { hamburger } from "../utils/hamburger.js";
+import { navigateTo } from "../utils/navigate.js";
 
-module.exports= class {
+export default class {
   constructor(params) {
     this.params = params;
     this.setHamburger = hamburger();
