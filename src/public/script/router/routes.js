@@ -1,10 +1,10 @@
-import HomePage from "../views/render/HomePage.js";
-import BookingPage from "../views/render/BookingPage.js";
-import AboutUsPage from "../views/render/AboutUsPage.js";
-import ContactPage from "../views/render/ContactPage.js";
-import DetailBookingPage from "../views/render/DetailBookingPage.js";
-import NotFoundPage from "../views/render/NotFoundPage.js";
-import { pathToRegex } from "../utils/pathToRegex.js";
+const HomePage = require( "../views/render/HomePage.js");
+const BookingPage  = require( "../views/render/BookingPage.js");
+const AboutUsPage  = require( "../views/render/AboutUsPage.js");
+const ContactPage  = require( "../views/render/ContactPage.js");
+const DetailBookingPage  = require( "../views/render/DetailBookingPage.js");
+const NotFoundPage  = require( "../views/render/NotFoundPage.js");
+const { pathToRegex } = require ( "../utils/pathToRegex.js");
 
 const routes = [
   { path: "/404", view: NotFoundPage },
@@ -20,4 +20,4 @@ const potentialMatches = routes.map((route) => {
     result: location.pathname.match(pathToRegex(route.path))
   };
 });
-export default potentialMatches;
+module.exports= potentialMatches;

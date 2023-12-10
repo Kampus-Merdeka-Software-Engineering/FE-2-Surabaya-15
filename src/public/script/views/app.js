@@ -1,5 +1,5 @@
-import { getParams } from "../utils/getParams.js";
-import potentialMatches from "../router/routes.js";
+const { getParams } = require("../utils/getParams.js");
+const potentialMatches =require( "../router/routes.js");
 
 class App {
   constructor({ content }) {
@@ -25,4 +25,4 @@ class App {
     window.addEventListener("load", this.view().afterRender());
   }
 }
-export default App;
+module.exports = App;

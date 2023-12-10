@@ -1,6 +1,6 @@
-import TemplatePage from "../TemplatePage.js";
+const TemplatePage =require ( "../TemplatePage.js");
 
-export default class extends TemplatePage {
+module.exports= class extends TemplatePage {
   constructor(params) {
     super(params);
     this.setTitle("About Us Page");

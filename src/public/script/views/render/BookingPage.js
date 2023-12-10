@@ -1,7 +1,7 @@
-import TemplatePage from "../TemplatePage.js";
-import { render } from "../after_render/booking.js";
+const TemplatePage = require ( "../TemplatePage.js");
+const { render }= require( "../after_render/booking.js");
 
-export default class extends TemplatePage {
+module.exports= class extends TemplatePage {
   constructor(params) {
     super(params);
     this.setTitle("Booking Page");

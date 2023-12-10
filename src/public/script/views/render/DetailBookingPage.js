@@ -1,7 +1,7 @@
-import TemplatePage from "../TemplatePage.js";
-import { render } from "../after_render/detail.js";
+const TemplatePage = require ("../TemplatePage.js");
+const { render } =require( "../after_render/detail.js");
 
-export default class extends TemplatePage {
+module.exports= class extends TemplatePage {
   constructor(params) {
     super(params);
     this.detailId = params.id;
