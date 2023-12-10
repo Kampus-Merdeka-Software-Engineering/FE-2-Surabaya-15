@@ -1,4 +1,4 @@
-/* Utilities  */
+
 * {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
@@ -276,9 +276,6 @@ body {
     width: 1320px;
   }
 }
-/* end Utilities */
-
-/* navbar */
 .navbar {
   display: flex;
   align-items: center;
@@ -321,9 +318,6 @@ body {
 .navbar a.active {
   color: grey;
 }
-/* end navbar */
-
-/* jumbotron */
 .jumbotron {
   width: 100%;
   min-height: 100vh;
@@ -434,9 +428,6 @@ input[type="date"]::-webkit-datetime-edit-year-field {
 .btn-search:hover {
   background-color: #688067;
 }
-/* end jumbotron */
-
-/* best offer */
 .card-boking {
   background-color: white;
   width: 350px;
@@ -499,9 +490,6 @@ input[type="date"]::-webkit-datetime-edit-year-field {
   padding: 20px 20px;
   border: none;
 }
-/* end best offer */
-
-/* testimoni */
 .card-testi-container {
   display: flex;
   align-items: center;
@@ -605,9 +593,6 @@ input[type="date"]::-webkit-datetime-edit-year-field {
 .form-testi .btn-send:hover {
   background-color: #688067;
 }
-/* end testimoni */
-
-/* footer */
 .footer-content {
   width: 100%;
   background-color: #475846;
@@ -622,9 +607,6 @@ input[type="date"]::-webkit-datetime-edit-year-field {
   text-align: center;
   line-height: 2rem;
 }
-/* end footer */
-
-/* swiper */
 .swiper {
   width: 100%;
 }
@@ -668,9 +650,6 @@ input[type="date"]::-webkit-datetime-edit-year-field {
   opacity: 100;
   border: 1.5px solid #2b342b;
 }
-/* end booking */
-
-/* detail booking */
 .input_total_payment {
   display: flex;
   align-items: center;
@@ -795,9 +774,6 @@ input[type="date"]::-webkit-datetime-edit-year-field {
 .img-detail-booking {
   width: 100%;
 }
-/* end detail booking */
-
-/* about us */
 .aboutus_title {
   display: flex;
   align-items: center;
@@ -864,9 +840,6 @@ input[type="date"]::-webkit-datetime-edit-year-field {
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
-/* end about us */
-
-/* contact */
 .container_contact {
   min-height: 80vh;
 }
@@ -898,10 +871,6 @@ input[type="date"]::-webkit-datetime-edit-year-field {
   align-items: center;
   justify-content: center;
 }
-
-/* end contact */
-
-/* loader */
 .loader-container {
   width: 100%;
   min-height: 70vh;
@@ -928,9 +897,6 @@ input[type="date"]::-webkit-datetime-edit-year-field {
     transform: rotate(360deg);
   }
 }
-/* end loader */
-
-/* struk */
 .overlay {
   position: fixed;
   opacity: 0;
@@ -954,9 +920,6 @@ input[type="date"]::-webkit-datetime-edit-year-field {
   padding: 20px 10px;
 }
 
-/* end struk */
-
-/*  */
 .notFound {
   width: 100%;
   height: 100vh;

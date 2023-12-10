@@ -19,17 +19,14 @@ export const render = async () => {
       prevEl: ".swiper-button-prev"
     },
     breakpoints: {
-      // when window width is >= 320px
       320: {
         slidesPerView: 1,
         spaceBetween: 10
       },
-      // when window width is >= 480px
       480: {
         slidesPerView: 2,
         spaceBetween: 250
       },
-      // when window width is >= 640px
       768: {
         slidesPerView: 2,
         spaceBetween: 100
@@ -58,17 +55,14 @@ export const render = async () => {
       prevEl: ".swiper-button-prev"
     },
     breakpoints: {
-      // when window width is >= 320px
       320: {
         slidesPerView: 1,
         spaceBetween: 10
       },
-      // when window width is >= 480px
       480: {
         slidesPerView: 2,
         spaceBetween: 250
       },
-      // when window width is >= 640px
       768: {
         slidesPerView: 2,
         spaceBetween: 100
@@ -97,17 +91,14 @@ export const render = async () => {
       prevEl: ".swiper-button-prev"
     },
     breakpoints: {
-      // when window width is >= 320px
       320: {
         slidesPerView: 1,
         spaceBetween: 10
       },
-      // when window width is >= 480px
       480: {
         slidesPerView: 2,
         spaceBetween: 250
       },
-      // when window width is >= 640px
       768: {
         slidesPerView: 2,
         spaceBetween: 100
@@ -136,17 +127,14 @@ export const render = async () => {
       prevEl: ".swiper-button-prev"
     },
     breakpoints: {
-      // when window width is >= 320px
       320: {
         slidesPerView: 1,
         spaceBetween: 10
       },
-      // when window width is >= 480px
       480: {
         slidesPerView: 2,
         spaceBetween: 250
       },
-      // when window width is >= 640px
       768: {
         slidesPerView: 2,
         spaceBetween: 100
@@ -158,7 +146,6 @@ export const render = async () => {
     }
   });
 
-  // get data to booking page
   try {
     const response = await fetch(`${CONFIG.API}/gethotels`);
     const hotels = await response.json();
@@ -339,5 +326,4 @@ export const render = async () => {
   } catch (error) {
     console.log(error);
   }
-  // end get data to booking page
 };
