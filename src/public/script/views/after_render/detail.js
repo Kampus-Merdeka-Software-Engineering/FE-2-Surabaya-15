@@ -1,6 +1,6 @@
 const CONFIG = require ("../../globals/config.js");
 
-export const render = async (id) => {
+const render = async (id) => {
   const getDetailBooking = await fetch(`${CONFIG.API}/gethotel/${id}`);
   const getDetailBookingJson = await getDetailBooking.json();
 
@@ -210,3 +210,4 @@ export const render = async (id) => {
     window.location.replace("/booking");
   });
 };
+module.exports = render

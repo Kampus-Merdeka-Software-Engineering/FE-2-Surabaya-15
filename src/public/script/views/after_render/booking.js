@@ -1,6 +1,6 @@
 const CONFIG =require ("../../globals/config.js");
 
-export const render = async () => {
+const render = async () => {
   const mySwiperJakarta = document.querySelector(".mySwiper-jakarta");
   var swiper = new Swiper(mySwiperJakarta, {
     slidesPerView: 3,
@@ -327,3 +327,4 @@ export const render = async () => {
     console.log(error);
   }
 };
+module.exports = render

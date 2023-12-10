@@ -1,6 +1,6 @@
 const CONFIG = require ( "../../globals/config.js");
 
-export const render = async () => {
+const render = async () => {
   const mySwiper = document.querySelector(".mySwiper");
   var swiper = new Swiper(mySwiper, {
     slidesPerView: 3,
@@ -377,3 +377,4 @@ export const render = async () => {
   dateCheckInMax.setAttribute("min", maxDate);
   dateCheckOutMax.setAttribute("min", maxDate);
 };
+module.exports = render
